@@ -1,10 +1,10 @@
 import "./App.css";
-import TicTacToe from "./components/TicTacToe";
+import Menu from "./components/Menu/Menu";
 
 function App() {
     return (
         <div className="App">
-            <TicTacToe />
+            <Menu />
         </div>
     );
 }

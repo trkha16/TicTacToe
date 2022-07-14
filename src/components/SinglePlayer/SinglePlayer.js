@@ -1,8 +1,7 @@
-import { Grid, Button } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import styles from "./TicTacToe.module.scss";
+import GamePlay from "../GamePlay/GamePlay";
 
-export default function TicTacToe() {
+export default function SinglePlayer({ setModeAgain }) {
     const [board, setBoard] = useState([
         ["", "", ""],
         ["", "", ""],
@@ -93,6 +92,7 @@ export default function TicTacToe() {
     };
 
     const playAgain = () => {
+        setModeAgain(0);
         setBoard([
             ["", "", ""],
             ["", "", ""],
@@ -110,50 +110,12 @@ export default function TicTacToe() {
     }, [isCpuTurn]);
 
     return (
-        <div className={styles.root}>
-            <div className={styles.container}>
-                {winner && (
-                    <div>
-                        <h1>{winner}</h1>
-                        <div onClick={playAgain}>
-                            <Button variant="contained" color="secondary">
-                                PLay Again
-                            </Button>
-                        </div>
-                    </div>
-                )}
-                {!winner && (
-                    <div>
-                        <h1>Hi</h1>
-                        <Grid container spacing={1}>
-                            {board.map((array, index1) =>
-                                array.map((symbol, index2) => (
-                                    <Grid
-                                        item
-                                        key={index1 * array.length + index2}
-                                        xs={4}
-                                        className={styles.boardItem}
-                                        onClick={() =>
-                                            handleTurn(index1, index2)
-                                        }
-                                    >
-                                        <Button
-                                            variant="contained"
-                                            color="secondary"
-                                            className={styles.symbolContainer}
-                                        >
-                                            <span className={styles.symbol}>
-                                                {symbol}
-                                            </span>
-                                        </Button>
-                                    </Grid>
-                                ))
-                            )}
-                        </Grid>
-                    </div>
-                )}
-            </div>
-        </div>
+        <GamePlay
+            winner={winner}
+            playAgain={playAgain}
+            handleTurn={handleTurn}
+            board={board}
+        />
     );
 }
 
