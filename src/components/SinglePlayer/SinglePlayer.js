@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import GamePlay from "../GamePlay/GamePlay";
 
-export default function SinglePlayer({ setModeAgain }) {
+export default function SinglePlayer({ setModeAgain, mode }) {
     const [board, setBoard] = useState([
         ["", "", ""],
         ["", "", ""],
@@ -115,6 +115,7 @@ export default function SinglePlayer({ setModeAgain }) {
             playAgain={playAgain}
             handleTurn={handleTurn}
             board={board}
+            mode={mode}
         />
     );
 }

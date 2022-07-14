@@ -2,11 +2,11 @@ import { Grid, Button } from "@material-ui/core";
 import PlayAgain from "../PlayAgain/PlayAgain";
 import styles from "./GamePlay.module.scss";
 
-function GamePlay({ winner, playAgain, handleTurn, board, isPlaying }) {
+function GamePlay({ winner, playAgain, handleTurn, board, mode, isPlaying }) {
     return (
         <div className={styles.root}>
             <div className={styles.container}>
-                {isPlaying && !winner && <h3>{isPlaying()}</h3>}
+                {mode === 2 && !winner && <h3>{isPlaying()}</h3>}
                 {winner && <PlayAgain winner={winner} playAgain={playAgain} />}
                 {!winner && (
                     <div>

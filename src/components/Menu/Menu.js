@@ -13,8 +13,12 @@ export default function Menu() {
 
     return (
         <div className={styles.root}>
-            {mode === 1 && <SinglePlayer setModeAgain={setModeAgain} />}
-            {mode === 2 && <Multiplayer setModeAgain={setModeAgain} />}
+            {mode === 1 && (
+                <SinglePlayer setModeAgain={setModeAgain} mode={mode} />
+            )}
+            {mode === 2 && (
+                <Multiplayer setModeAgain={setModeAgain} mode={mode} />
+            )}
 
             {mode === 0 && (
                 <div className={styles.container}>

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import GamePlay from "../GamePlay/GamePlay";
 
-export default function Multiplayers({ setModeAgain }) {
+export default function Multiplayers({ setModeAgain, mode }) {
     const [board, setBoard] = useState([
         ["", "", ""],
         ["", "", ""],
@@ -92,6 +92,7 @@ export default function Multiplayers({ setModeAgain }) {
                 playAgain={playAgain}
                 handleTurn={handleTurn}
                 board={board}
+                mode={mode}
                 isPlaying={isPlaying}
             />
         </div>
